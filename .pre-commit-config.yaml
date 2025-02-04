@@ -1,0 +1,11 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0 # Ou a versão mais recente
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files # Remova ou comente a linha 'stages' abaixo
+        # stages: [pre-commit]  <- REMOVA ou COMENTE esta linha
+    -   id: check-ast
+# ... outros hooks
