@@ -8,7 +8,7 @@ resource "aws_subnet" "eks_subnet_public_1a" {
     local.tags,
     {
       Name                     = "${var.project_name}-pub-subnet-1a"
-      "kubernetes.io/role/elb" = 1
+      "kubernetes.io/role/elb" = "1"
     }
   )
 }
@@ -23,7 +23,17 @@ resource "aws_subnet" "eks_subnet_public_1b" {
     local.tags,
     {
       Name                     = "${var.project_name}-pub-subnet-1b"
-      "kubernetes.io/role/elb" = 1
+      "kubernetes.io/role/elb" = "1"
     }
   )
+}
+
+resource "aws_route_table_association" "eks_rtb_assoc_1a" {
+  subnet_id      = aws_subnet.eks_subnet_public_1a.id
+  route_table_id = aws_route_table.eks_public_route_tables.id
+}
+
+resource "aws_route_table_association" "eks_rtb_assoc_1b" {
+  subnet_id      = aws_subnet.eks_subnet_public_1b.id
+  route_table_id = aws_route_table.eks_public_route_tables.id
 }
