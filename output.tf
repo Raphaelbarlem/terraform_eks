@@ -1,5 +1,7 @@
-output "subnet_pub_1a" {
-  value = module.eks_network.subnet_pub_1a
-}
+#output "eks_vpc_config" {
+#  value = module.eks_cluster.eks_vpc_config
+#}
 
-#esse exemplo serve para fazer debug de um modulo, testar se realmete ele está amarrado ao que deveria está, assim eu chamo um output crio um nome, e peço para ele informar o valor do modulo que preciso
+output "oidc" {
+  value = module.eks_cluster.oidc
+}
